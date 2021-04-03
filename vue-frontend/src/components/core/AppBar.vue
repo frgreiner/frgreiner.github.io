@@ -22,11 +22,7 @@
       <span>{{ item.title }}</span>
     </v-btn>
     <!-- Dark Theme Switch -->
-    <v-menu
-      :close-on-content-click="true"
-      offset-y
-      left
-    >
+    <v-menu :close-on-content-click="true" offset-y left>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           height="100%"
@@ -46,11 +42,21 @@
           </v-list-item-action>
           <v-list-item-title>Dark Theme</v-list-item-title>
         </v-list-item>
+        <v-divider></v-divider>
+        <v-list-item>
+          <v-list-item-action>
+            <v-switch v-model="googleAnalytics" color="accent" inset></v-switch>
+          </v-list-item-action>
+          <v-list-item-title>Google Analytics</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
   </v-app-bar>
 </template>
 <script>
+import Vue from "vue";
+import VueGtag from "vue-gtag";
+
 export default {
   data() {
     return {
@@ -61,6 +67,9 @@ export default {
   watch: {
     $route(to) {
       this.getTagsForRoute(to.path);
+    },
+    googleAnalytics() {
+      this.handleTracking();
     },
   },
   methods: {
@@ -80,13 +89,32 @@ export default {
       );
       this.tags = navItemsFiltered.length > 0 ? navItemsFiltered[0].tags : [];
     },
+    handleTracking() {
+      // enable google analytics
+      if (this.googleAnalytics) {
+        Vue.use(VueGtag, {
+          config: { id: "G-DRGHVJ9F7K" },
+        });
+      }
+      // reload the page to disable
+      else {
+        if (this.$gtag) {
+          window.location.reload();
+        }
+      }
+    },
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
     this.handleScroll();
+    this.handleTracking();
     this.getTagsForRoute(this.$router.currentRoute.path);
+
+    if (this.$gtag) {
+      this.$gtag.event("page-loaded");
+    }
   },
   computed: {
     navItems() {
@@ -98,6 +126,14 @@ export default {
       },
       set: function(value) {
         this.$store.commit("theme/setDarkMode", value);
+      },
+    },
+    googleAnalytics: {
+      get() {
+        return this.$store.state.googleAnalytics;
+      },
+      set(value) {
+        this.$store.commit("setGoogleAnalytics", value);
       },
     },
   },

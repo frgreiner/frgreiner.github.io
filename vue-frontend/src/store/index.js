@@ -4,18 +4,28 @@ import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import navigation from "./navigation";
 
-import profile from './profile'
-import theme from './theme'
+import profile from "./profile";
+import theme from "./theme";
 
 Vue.use(Vuex);
 
 /* eslint-disable no-new */
 const store = new Vuex.Store({
-  plugins: [createPersistedState({ paths: ["theme.darkMode"] })],
+  plugins: [
+    createPersistedState({ paths: ["theme.darkMode", "googleAnalytics"] }),
+  ],
   modules: {
     navigation,
     profile,
-    theme
+    theme,
+  },
+  state: {
+    googleAnalytics: false,
+  },
+  mutations: {
+    setGoogleAnalytics(state, value) {
+      state.googleAnalytics = value;
+    },
   },
 });
 
