@@ -1,0 +1,37 @@
+[
+  {
+    "company": "Robert Bosch GmbH",
+    "position": "Working Student",
+    "description": "Fullstack development with MySQL, Java (Spring Boot), Angular and Python: automated evaluation of autonomous driving usecases",
+    "location": "Abstatt, Germany",
+    "year": "Apr. 2019 - today"
+  },
+  {
+    "company": "Bosch Engineering GmbH",
+    "position": "Working Student",
+    "description": "Software Development in C#: API Architecture/Design for HIL Measurement protocols (CCP, XCP on CAN/Ethernet)",
+    "location": "Abstatt, Germany",
+    "year": "Feb. 2018 - Aug. 2018"
+  },
+  {
+    "company": "Bosch Engineering GmbH",
+    "position": "Internship",
+    "description": "Software Development in C#: API Architecture/Design for HIL Measurement protocols (CCP, XCP on CAN/Ethernet)",
+    "location": "Abstatt, Germany",
+    "year": "Aug. 2017 - Feb. 2018"
+  },
+  {
+    "company": "Malteser",
+    "position": "Working Student",
+    "description": "Meals on wheels and driving service for people with disabilities",
+    "location": "Heilbronn, Germany",
+    "year": "Apr. 2014 - Jul. 2017"
+  },
+  {
+    "company": "Work & Travel",
+    "position": "Farmhand",
+    "description": "mainly fruit picking (Lemongrass, Oranges, Bananas & Mangos)",
+    "location": "Australia",
+    "year": "Aug. 2013 - Mar. 2014"
+  }
+]

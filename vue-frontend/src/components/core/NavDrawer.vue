@@ -23,6 +23,19 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+
+      <!-- -->
+      <v-spacer></v-spacer>
+
+      <v-list nav dense>
+        <v-divider></v-divider>
+        <v-list-item>
+          <v-list-item-action>
+            <v-switch v-model="darkMode" color="accent" inset></v-switch>
+          </v-list-item-action>
+          <v-list-item-title>Dark Theme</v-list-item-title>
+        </v-list-item>
+      </v-list>
     </v-layout>
   </v-navigation-drawer>
 </template>
@@ -41,6 +54,14 @@ export default {
     },
     navItems() {
       return this.$store.state.navigation.navItems;
+    },
+    darkMode: {
+      get: function() {
+        return this.$store.state.theme.darkMode;
+      },
+      set: function(value) {
+        this.$store.commit("theme/setDarkMode", value);
+      },
     },
   },
   created() {

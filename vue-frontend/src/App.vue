@@ -17,7 +17,16 @@ export default {
     AppBar,
     NavDrawer,
   },
-  data: () => ({ items: ["One", "Two", "Three"] }),
+  computed: {
+    darkMode() {
+      return this.$store.state.theme.darkMode;
+    },
+  },
+  watch: {
+    darkMode(newMode) {
+      this.$vuetify.theme.dark = newMode;
+    },
+  },
 };
 </script>
 <style>

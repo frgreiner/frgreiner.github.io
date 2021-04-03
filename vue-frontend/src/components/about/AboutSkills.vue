@@ -21,6 +21,7 @@
         (I have heard of it and used it once or twice for a private or
         university project)
         <br />
+        <br />
         to:
         <v-rating
           :value="5"
@@ -30,7 +31,7 @@
           :readonly="true"
         >
         </v-rating>
-        (I use it frequently for all kinds of projects, also at work)
+        (I am using it frequently for my projects or at work)
       </v-responsive>
     </v-container>
 
@@ -85,15 +86,9 @@ export default {
   name: "AboutSkills",
   props: {
     items: Array,
-    items2: Array,
   },
   data: () => ({
     panel: [0, 1, 2, 3],
   }),
-  methods: {
-    getSortedItems(items) {
-      return items.sort((a, b) => b.level - a.level);
-    },
-  },
 };
 </script>

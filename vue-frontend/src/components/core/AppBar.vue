@@ -1,9 +1,6 @@
 <template>
   <v-app-bar app clipped-left flat dark color="primary">
     <v-toolbar-title>Friedrich Greiner</v-toolbar-title>
-    <!--<v-btn height="100%" text tile style="text-transform: unset !important;">
-    <v-toolbar-title>Friedrich Greiner</v-toolbar-title>
-    </v-btn>-->
     <v-spacer></v-spacer>
 
     <!-- small screen -->
@@ -24,11 +21,9 @@
     >
       <span>{{ item.title }}</span>
     </v-btn>
-    <!--
+    <!-- Dark Theme Switch -->
     <v-menu
-      v-model="menu"
-      :close-on-content-click="false"
-      :nudge-width="200"
+      :close-on-content-click="true"
       offset-y
       left
     >
@@ -47,13 +42,12 @@
       <v-list>
         <v-list-item>
           <v-list-item-action>
-            <v-switch v-model="$vuetify.theme.dark" color="accent" inset></v-switch>
+            <v-switch v-model="darkMode" color="accent" inset></v-switch>
           </v-list-item-action>
           <v-list-item-title>Dark Theme</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
-    -->
   </v-app-bar>
 </template>
 <script>
@@ -97,6 +91,14 @@ export default {
   computed: {
     navItems() {
       return this.$store.state.navigation.navItems;
+    },
+    darkMode: {
+      get: function() {
+        return this.$store.state.theme.darkMode;
+      },
+      set: function(value) {
+        this.$store.commit("theme/setDarkMode", value);
+      },
     },
   },
 };

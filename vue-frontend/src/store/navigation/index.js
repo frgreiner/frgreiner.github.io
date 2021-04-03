@@ -1,7 +1,3 @@
-import getters from "./getters";
-import mutations from "./mutations";
-import actions from "./actions";
-
 export default {
   namespaced: true,
   state: {
@@ -25,7 +21,12 @@ export default {
       },
     ],
   },
-  getters,
-  mutations,
-  actions,
+  mutations: {
+    setDrawer(state, value) {
+      state.drawer = value;
+    },
+    toggleDrawer(state) {
+      state.drawer = !state.drawer;
+    },
+  },
 };
