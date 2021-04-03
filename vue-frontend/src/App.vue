@@ -1,20 +1,21 @@
 <template>
   <v-app>
     <app-bar />
-    <v-fade-transition mode="out-in">
-      <router-view />
-    </v-fade-transition>
+    <nav-drawer />
+    <router-view />
   </v-app>
 </template>
 
 <script>
 import AppBar from "./components/core/AppBar";
+import NavDrawer from "@/components/core/NavDrawer";
 
 export default {
   name: "App",
 
   components: {
     AppBar,
+    NavDrawer,
   },
   data: () => ({ items: ["One", "Two", "Three"] }),
 };
