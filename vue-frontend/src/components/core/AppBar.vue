@@ -17,7 +17,7 @@
       height="100%"
       text
       tile
-      class="hidden-sm-and-down active-section"
+      class="hidden-sm-and-down"
       v-for="(item, n) in navItems"
       :key="n"
       @click="$vuetify.goTo(item.anchor)"
@@ -101,8 +101,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.active-section {
-  border-bottom: solid white;
-}
-</style>
