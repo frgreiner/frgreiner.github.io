@@ -5,6 +5,7 @@
     clipped
     v-bind:width="180"
     dark
+    right
     disable-resize-watcher
   >
     <v-layout column fill-height>
