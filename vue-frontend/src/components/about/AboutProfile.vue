@@ -27,14 +27,20 @@
         </v-col>
       </v-row>
       <v-responsive class="mx-auto title mb-8" max-width="720">
-        I am a <b>software engineer</b> with experience in <b>full-stack</b> web
+        I am a <b class="accent--text">software engineer</b> with experience in
+        <b class="accent--text">full-stack</b>
         development on agile projects. My main programming language is
-        <b>Java</b> and I am familiar with the concepts of object oriented
-        programming and the fundamentals of <b>Spring Boot</b>. Having expertise
-        mainly around applications with <b>Spring Boot</b> + <b>SQL</b> backend
-        and <b>Angular</b> or <b>Vue.js</b> frontend, I appreciate the use of
-        CI/CD pipelines and containerized deployment strategies to speed up
-        development.
+        <b class="accent--text">Java</b> and I am familiar with the concepts of
+        <b class="accent--text">object oriented</b> programming and the
+        fundamentals of <b class="accent--text">Spring Boot</b>. Having
+        expertise mainly around applications with
+        <b class="accent--text">Spring Boot</b> +
+        <b class="accent--text">SQL</b> backend and
+        <b class="accent--text">Angular</b> or
+        <b class="accent--text">Vue.js</b> frontend, I appreciate the use of
+        <b class="accent--text">CI/CD pipelines</b> and
+        <b class="accent--text">containerized</b> deployment strategies to speed
+        up development.
         <br />
       </v-responsive>
 

@@ -21,6 +21,7 @@
     >
       <span>{{ item.title }}</span>
     </v-btn>
+
     <!-- Dark Theme Switch -->
     <v-menu :close-on-content-click="true" offset-y left>
       <template v-slot:activator="{ on, attrs }">
@@ -35,42 +36,33 @@
           <v-icon>mdi-cog</v-icon>
         </v-btn>
       </template>
-      <v-list>
+      <v-list class="menu-list">
         <v-list-item>
-          <v-list-item-action>
-            <v-switch v-model="darkMode" color="accent" inset></v-switch>
-          </v-list-item-action>
-          <v-list-item-title>Dark Theme</v-list-item-title>
+          <v-switch
+            style="margin-top: 0px;"
+            v-model="darkMode"
+            color="accent"
+            inset
+            hide-details
+            label="Dark Theme"
+          ></v-switch>
         </v-list-item>
         <v-divider></v-divider>
-        <v-list-item>
-          <v-list-item-action>
-            <v-switch v-model="googleAnalytics" color="accent" inset></v-switch>
-          </v-list-item-action>
-          <v-list-item-title>Google Analytics</v-list-item-title>
+        <v-list-item @click="$store.commit('dsgvo/accept', false)">
+          <v-list-item-title>Privacy Policy</v-list-item-title>
         </v-list-item>
+        <privacy-policy />
       </v-list>
     </v-menu>
   </v-app-bar>
 </template>
 <script>
-import Vue from "vue";
-import VueGtag from "vue-gtag";
-
 export default {
+  components: {},
   data() {
     return {
       isScrollTop: true,
-      tags: [],
     };
-  },
-  watch: {
-    $route(to) {
-      this.getTagsForRoute(to.path);
-    },
-    googleAnalytics() {
-      this.handleTracking();
-    },
   },
   methods: {
     toggleDrawer() {
@@ -83,38 +75,12 @@ export default {
         this.isScrollTop = true;
       }
     },
-    getTagsForRoute(path) {
-      let navItemsFiltered = this.$store.state.navigation.navItems.filter(
-        (x) => x.path === path
-      );
-      this.tags = navItemsFiltered.length > 0 ? navItemsFiltered[0].tags : [];
-    },
-    handleTracking() {
-      // enable google analytics
-      if (this.googleAnalytics) {
-        Vue.use(VueGtag, {
-          config: { id: "G-DRGHVJ9F7K" },
-        });
-      }
-      // reload the page to disable
-      else {
-        if (this.$gtag) {
-          window.location.reload();
-        }
-      }
-    },
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
     this.handleScroll();
-    this.handleTracking();
-    this.getTagsForRoute(this.$router.currentRoute.path);
-
-    if (this.$gtag) {
-      this.$gtag.event("page-loaded");
-    }
   },
   computed: {
     navItems() {
@@ -128,14 +94,11 @@ export default {
         this.$store.commit("theme/setDarkMode", value);
       },
     },
-    googleAnalytics: {
-      get() {
-        return this.$store.state.googleAnalytics;
-      },
-      set(value) {
-        this.$store.commit("setGoogleAnalytics", value);
-      },
-    },
   },
 };
 </script>
+<style lang="css" scoped>
+.menu-list {
+  padding: 0 !important;
+}
+</style>

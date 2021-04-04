@@ -1,6 +1,6 @@
 <template>
   <section id="about-education">
-    <div class="py-12"></div>
+    <div class="py-6"></div>
 
     <v-container class="text-center">
       <h2 class="display-2 font-weight-bold mb-8">EDUCATION</h2>
@@ -19,7 +19,7 @@
         </v-timeline-item>
       </v-timeline>
     </v-container>
-    <div class="py-12"></div>
+    <div class="py-6"></div>
   </section>
 </template>
 
