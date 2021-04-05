@@ -5,40 +5,43 @@
     <router-view />
 
     <!-- hidden status elements -->
-    <privacy-policy />
+    <!--<privacy-policy />-->
   </v-app>
 </template>
 
 <script>
-import Vue from "vue";
-import VueGtag from "vue-gtag";
+/**
+ * disabled all google analytics related methods until a dsgvo conform information is available
+ */
+//import Vue from "vue";
+//import VueGtag from "vue-gtag";
 import AppBar from "./components/core/AppBar";
 import NavDrawer from "@/components/core/NavDrawer";
-import PrivacyPolicy from "./components/dialog/PrivacyPolicy";
+//import PrivacyPolicy from "./components/dialog/PrivacyPolicy";
 
 export default {
   name: "App",
 
   components: {
     AppBar,
-    PrivacyPolicy,
+    //PrivacyPolicy,
     NavDrawer,
   },
   mounted() {
-    this.handleTracking();
+    /*this.handleTracking();
     if (this.$gtag) {
       this.$gtag.event("page-loaded");
-    }
+    }*/
   },
   computed: {
     darkMode() {
       return this.$store.state.theme.darkMode;
     },
-    googleAnalytics: {
+    /*googleAnalytics: {
       get() {
         return this.$store.state.dsgvo.googleAnalytics;
       },
-    },
+    },*/
   },
   watch: {
     // handle dark mode on/off
@@ -46,12 +49,12 @@ export default {
       this.$vuetify.theme.dark = newMode;
     },
     // handle cookie settings changes
-    googleAnalytics() {
+    /*googleAnalytics() {
       this.handleTracking();
-    },
+    },*/
   },
   methods: {
-    handleTracking() {
+    /*handleTracking() {
       // enable google analytics
       if (this.googleAnalytics && this.$store.state.dsgvo.accepted) {
         Vue.use(VueGtag, {
@@ -67,7 +70,7 @@ export default {
           window.location.reload();
         }
       }
-    },
+    },*/
   },
 };
 </script>

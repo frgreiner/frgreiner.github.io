@@ -3,7 +3,7 @@ export default {
   state: {
     accepted: false,
     essential: true,
-    googleAnalytics: true,
+    //googleAnalytics: true,
   },
   getters: {},
   mutations: {
@@ -14,9 +14,9 @@ export default {
       state.essential = value;
       state.accepted = false;
     },
-    setGoogleAnalytics(state, value) {
+    /*setGoogleAnalytics(state, value) {
       state.googleAnalytics = value;
       state.accepted = false;
-    },
+    },*/
   },
 };

@@ -66,6 +66,7 @@ export default {
     },
   },
   created() {
+    this.$store.commit("navigation/setDrawer", false);
     window.addEventListener("resize", this.resizeHandler);
   },
   destroyed() {

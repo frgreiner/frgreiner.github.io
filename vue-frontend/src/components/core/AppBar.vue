@@ -47,11 +47,10 @@
             label="Dark Theme"
           ></v-switch>
         </v-list-item>
-        <v-divider></v-divider>
+        <!--<v-divider></v-divider>
         <v-list-item @click="$store.commit('dsgvo/accept', false)">
           <v-list-item-title>Privacy Policy</v-list-item-title>
-        </v-list-item>
-        <privacy-policy />
+        </v-list-item>-->
       </v-list>
     </v-menu>
   </v-app-bar>
