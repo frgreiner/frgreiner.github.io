@@ -11,11 +11,11 @@ export default new Vuetify({
       light: {
         primary: "#212121",
         secondary: "#424242",
-        accent: "996633",
+        accent: "e87109",
       },
       dark: {
-        primary: "511348",
-        accent: "bb86fc",
+        primary: "354e91",
+        accent: "e87109",
       },
     },
     options: {
