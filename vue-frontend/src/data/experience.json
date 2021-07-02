@@ -1,10 +1,17 @@
 [
   {
+    "company": "SEITENBAU GmbH",
+    "position": "Software Developer",
+    "description": "Fullstack development",
+    "location": "Konstanz, Germany",
+    "year": "Jul. 2021 - today"
+  },
+  {
     "company": "Robert Bosch GmbH",
     "position": "Working Student",
     "description": "Fullstack development with MySQL, Java (Spring Boot), Angular and Python: automated evaluation of autonomous driving usecases",
     "location": "Abstatt, Germany",
-    "year": "Apr. 2019 - today"
+    "year": "Apr. 2019 - Mai 2021"
   },
   {
     "company": "Bosch Engineering GmbH",
